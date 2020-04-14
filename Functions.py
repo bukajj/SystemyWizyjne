@@ -1,12 +1,14 @@
 import cv2.cv2 as cv
 
 class Functions:
+
     # funkcja wyświetlania obrazu
     def show(name, image):
 
         cv.imshow(name, image)
         cv.waitKey(0)
         cv.destroyAllWindows()
+
 
     # negatyw obrazu
     def negative(image):
@@ -16,9 +18,10 @@ class Functions:
 
         for px in range(__shape[0]):
             for py in range(__shape[1]):
-                __img[px, py] = [256 - __img[px, py][0], 256 - __img[px, py][1], 256 - __img[px, py][2]]
+                __img[px, py] = [255 - __img[px, py][0], 255 - __img[px, py][1], 255 - __img[px, py][2]]
 
         return __img
+
 
     # konwersja do odcieni szarości wg modelu YUV
     def grayedOut(image):
@@ -33,6 +36,7 @@ class Functions:
 
         return __img
 
+
     # normalizacja histogramu przy użyciu biblioteki openCV
     def equalizeHistogram(image):
 
@@ -40,6 +44,7 @@ class Functions:
         __img = cv.equalizeHist(__img)
 
         return __img
+
 
     # skalowanie
     def scaling(image, scale):
@@ -49,4 +54,12 @@ class Functions:
 
         return __img
 
+
+    # progowanie (binaryzacja)
+    def threshBinary(image):
+
+        __img = cv.imread(image,0)
+        ret,__img = cv.threshold(__img,128,255,cv.THRESH_BINARY)
+
+        return  __img
 

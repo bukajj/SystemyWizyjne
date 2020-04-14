@@ -10,6 +10,7 @@ def main():
     Functions.show('grayed out',Functions.grayedOut(img))
     Functions.show('histogram equalizing',Functions.equalizeHistogram(img))
     Functions.show('scaling',Functions.scaling(img,0.5))
+    Functions.show('thresh binary', Functions.threshBinary(img))
 
 
 if __name__ == "__main__":
