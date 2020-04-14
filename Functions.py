@@ -105,3 +105,13 @@ class Functions:
         __img = cv.cvtColor(__img, cv.COLOR_BGR2HSV)
 
         return __img
+
+    def rotation(image, angle):
+
+        __img = cv.imread(image)
+        __rows,__cols,__colors = __img.shape
+
+        __M = cv.getRotationMatrix2D((__cols/2,__rows/2),angle,1)
+        __img = cv.warpAffine(__img,__M,(__cols,__rows))
+
+        return __img
