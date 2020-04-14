@@ -137,5 +137,10 @@ class Functions:
 
 
     # detekcja krawędzi
- #   def
+    def cannyEdgeDetection(image):
+
+        __img = cv.imread(image)
+        __img = cv.Canny(__img,50,200)
+
+        return __img
 

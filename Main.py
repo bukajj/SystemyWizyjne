@@ -20,6 +20,7 @@ def main():
     print('11. Zmiana przestrzeni kolorów z RGB na HSV')
     print('12. Rotacja')
     print('13. Zmiana jasności')
+    print('14. Detekcja krawędzi')
 
     __in = int(input("Podaj liczbę: "))
 
@@ -52,6 +53,8 @@ def main():
     elif __in == 13:
         isBrighter = bool(input("Jaśniej(True) czy ciemniej(False)? "))
         Functions.show('brighter', Functions.brightnessChanging(img, isBrighter))
+    elif __in == 14:
+        Functions.show('canny edge detection', Functions.cannyEdgeDetection(img))
 
 
 
