@@ -23,6 +23,7 @@ def main():
     print('14. Detekcja krawędzi')
     print('15. Segmentacja Otsu')
     print('16. Segmentacja - wyznaczanie progów na podstawie histogramu')
+    print('17. Segmentacja - watershed algorithm')
 
     __in = int(input("Podaj liczbę: "))
 
@@ -61,6 +62,9 @@ def main():
         Functions.show('Otsu binarization', Functions.segmentationOtsu(img))
     elif __in == 16:
         Functions.show('segmentation - binarization of histogram', Functions.segmentationBinarizationHist(img))
+    elif __in == 17:
+        Functions.show('segmentation - watershed algorithm', Functions.watershedAlgorithm(img))
+
 
 
 
