@@ -155,3 +155,16 @@ class Functions:
 
         return __img
 
+
+    # segmentacja - wyznaczanie progów na podstawie histogramu
+    def segmentationBinarizationHist(image):
+
+        __img = cv.imread(image,0)
+        __img = cv.equalizeHist(__img)
+        ret, __img = cv.threshold(__img, 128, 255, cv.THRESH_BINARY)
+
+        return __img
+
+
+    # segmentacja - watershed algorithm
+

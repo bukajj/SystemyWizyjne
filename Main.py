@@ -22,6 +22,7 @@ def main():
     print('13. Zmiana jasności')
     print('14. Detekcja krawędzi')
     print('15. Segmentacja Otsu')
+    print('16. Segmentacja - wyznaczanie progów na podstawie histogramu')
 
     __in = int(input("Podaj liczbę: "))
 
@@ -58,6 +59,8 @@ def main():
         Functions.show('canny edge detection', Functions.cannyEdgeDetection(img))
     elif __in == 15:
         Functions.show('Otsu binarization', Functions.segmentationOtsu(img))
+    elif __in == 16:
+        Functions.show('segmentation - binarization of histogram', Functions.segmentationBinarizationHist(img))
 
 
 
