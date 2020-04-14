@@ -136,5 +136,6 @@ class Functions:
         return __img
 
 
-
+    # detekcja krawędzi
+ #   def
 
