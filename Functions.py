@@ -106,6 +106,8 @@ class Functions:
 
         return __img
 
+
+    # rotacja
     def rotation(image, angle):
 
         __img = cv.imread(image)
@@ -115,3 +117,24 @@ class Functions:
         __img = cv.warpAffine(__img,__M,(__cols,__rows))
 
         return __img
+
+
+    # zmiana jasności
+    def brightnessChanging(image, isBrighter):
+
+        __img = cv.imread(image)
+        __shape = __img.shape
+
+        for px in range(__shape[0]):
+            for py in range(__shape[1]):
+                for c in range(__shape[2]):
+                    if isBrighter == True:
+                        __img[px, py][c] = min(__img[px,py][c] + 50, 255)
+                    else:
+                        __img[px, py][c] = max(__img[px,py][c] - 50, 0)
+
+        return __img
+
+
+
+

@@ -18,7 +18,10 @@ def main():
     Functions.show('changing colorspace BGR2HSV', Functions.changingColorSpace_BGR2HSV(img))
     Functions.show('rotation 90', Functions.rotation(img, 90))
     Functions.show('rotation 30', Functions.rotation(img, 30))
+    Functions.show('brighter', Functions.brightnessChanging(img, True))
+    Functions.show('darker', Functions.brightnessChanging(img, False))
 
 
 if __name__ == "__main__":
+
     main()
