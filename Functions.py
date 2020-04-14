@@ -90,3 +90,18 @@ class Functions:
 
         return __img
 
+
+    # zmiana przestrzeni kolorów
+    def changingColorSpace_BGR2GRAY(image):
+
+        __img = cv.imread(image)
+        __img = cv.cvtColor(__img, cv.COLOR_BGR2GRAY)
+
+        return __img
+
+    def changingColorSpace_BGR2HSV(image):
+
+        __img = cv.imread(image)
+        __img = cv.cvtColor(__img, cv.COLOR_BGR2HSV)
+
+        return __img

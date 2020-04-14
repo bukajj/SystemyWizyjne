@@ -14,6 +14,8 @@ def main():
     Functions.show('blurring', Functions.imageBlurring(img, 5))
     Functions.show('Gaussian blurring', Functions.GaussianBlurring(img, 5))
     Functions.show('median blurring', Functions.medianBlur(img, 5))
+    Functions.show('changing colorspace BGR2GRAY', Functions.changingColorSpace_BGR2GRAY(img))
+    Functions.show('changing colorspace BGR2HSV', Functions.changingColorSpace_BGR2HSV(img))
 
 
 if __name__ == "__main__":

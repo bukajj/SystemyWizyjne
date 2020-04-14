@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01dd63ef-f016-4a23-acb7-82545fe78ea6" name="Default Changelist" comment="Skalowanie">
+    <list default="true" id="01dd63ef-f016-4a23-acb7-82545fe78ea6" name="Default Changelist" comment="Filtry: rozmycie, rozmycie Gaussa, filtr medianowy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
@@ -93,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1586865225882</updated>
       <workItem from="1586865228855" duration="9734000" />
-      <workItem from="1586876777990" duration="1612000" />
+      <workItem from="1586876777990" duration="2109000" />
     </task>
     <task id="LOCAL-00001" summary="Negatyw obrazu">
       <created>1586870164841</created>
@@ -123,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586875874895</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Filtry: rozmycie, rozmycie Gaussa, filtr medianowy">
+      <created>1586878545773</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1586878545773</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -146,25 +153,26 @@
     <MESSAGE value="Konwersja do odcieni szarości metodą YUV" />
     <MESSAGE value="Normalizacja histogramu" />
     <MESSAGE value="Skalowanie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Skalowanie" />
+    <MESSAGE value="Filtry: rozmycie, rozmycie Gaussa, filtr medianowy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Filtry: rozmycie, rozmycie Gaussa, filtr medianowy" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586878291788">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586878892947">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586878291788" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586878291788">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586878892947" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586878892947">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586878291788" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586878291788">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586878892947" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586878892946">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586878291788" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586878291788">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586878892946" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586878892947">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586878291788" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586878892947" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1586875425079">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -183,6 +191,6 @@
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586875425079" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SystemyWizyjne$Main.coverage" NAME="Main Coverage Results" MODIFIED="1586878488595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SystemyWizyjne$Main.coverage" NAME="Main Coverage Results" MODIFIED="1586878892938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
