@@ -21,6 +21,7 @@ def main():
     print('12. Rotacja')
     print('13. Zmiana jasności')
     print('14. Detekcja krawędzi')
+    print('15. Segmentacja Otsu')
 
     __in = int(input("Podaj liczbę: "))
 
@@ -55,6 +56,8 @@ def main():
         Functions.show('brighter', Functions.brightnessChanging(img, isBrighter))
     elif __in == 14:
         Functions.show('canny edge detection', Functions.cannyEdgeDetection(img))
+    elif __in == 15:
+        Functions.show('Otsu binarization', Functions.segmentationOtsu(img))
 
 
 

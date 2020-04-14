@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01dd63ef-f016-4a23-acb7-82545fe78ea6" name="Default Changelist" comment="Zmiana w main()">
+    <list default="true" id="01dd63ef-f016-4a23-acb7-82545fe78ea6" name="Default Changelist" comment="Detekcja krawędzi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
@@ -95,7 +95,7 @@
       <workItem from="1586865228855" duration="9734000" />
       <workItem from="1586876777990" duration="2109000" />
       <workItem from="1586879034261" duration="1700000" />
-      <workItem from="1586884743351" duration="4898000" />
+      <workItem from="1586884743351" duration="6264000" />
     </task>
     <task id="LOCAL-00001" summary="Negatyw obrazu">
       <created>1586870164841</created>
@@ -146,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586890572167</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Detekcja krawędzi">
+      <created>1586891041037</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1586891041037</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,25 +216,26 @@
     <MESSAGE value="Filtry: rozmycie, rozmycie Gaussa, filtr medianowy" />
     <MESSAGE value="Zmiana jasności" />
     <MESSAGE value="Zmiana w main()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zmiana w main()" />
+    <MESSAGE value="Detekcja krawędzi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Detekcja krawędzi" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586891002214">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586891962840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586891002214" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586891002214">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586891962840" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586891962840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586891002214" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586891002214">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586891962840" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586891962840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586891002214" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586891002214">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586891962840" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586891962840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586891002214" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586891962840" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1586889169804">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -246,6 +254,6 @@
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586889169804" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SystemyWizyjne$Main.coverage" NAME="Main Coverage Results" MODIFIED="1586891017993" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SystemyWizyjne$Main.coverage" NAME="Main Coverage Results" MODIFIED="1586892386407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

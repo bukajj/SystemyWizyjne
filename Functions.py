@@ -1,4 +1,5 @@
 import cv2.cv2 as cv
+import numpy as np
 
 class Functions:
 
@@ -141,6 +142,16 @@ class Functions:
 
         __img = cv.imread(image)
         __img = cv.Canny(__img,50,200)
+
+        return __img
+
+
+    # segmentacja z użyciem binaryzacji Otsu
+    def segmentationOtsu(image):
+        
+        __img = cv.imread(image, 0)
+        __img = cv.GaussianBlur(__img,(5,5),0)
+        __ret, __img = cv.threshold(__img,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
 
         return __img
 
