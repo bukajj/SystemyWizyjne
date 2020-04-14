@@ -41,5 +41,12 @@ def grayedOut(image):
     cv.destroyAllWindows()
 
 
+#normalizacja histogramu przy użyciu biblioteki openCV
+def equalizeHistogram(image):
 
+    __img = cv.imread(image,0)
+    __img = cv.equalizeHist(__img)
 
+    cv.imshow('histogram equalization', __img)
+    cv.waitKey(0)
+    cv.destroyAllWindows()

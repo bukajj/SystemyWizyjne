@@ -1,6 +1,7 @@
 from Functions import show
 from Functions import negative
 from Functions import grayedOut
+from Functions import equalizeHistogram
 
 def main():
 
@@ -9,6 +10,7 @@ def main():
     show('Lenna', img)
     negative(img)
     grayedOut(img)
+    equalizeHistogram(img)
 
 
 if __name__ == "__main__":
