@@ -4,7 +4,7 @@ from Functions import Functions
 def main():
 
 #przykładowy obraz:
-    img = 'lenna.bmp'
+    img = '1.png'
 
     print('Co chcesz zrobić?')
     print('1. Wyświetl oryginalny obraz')
@@ -24,6 +24,7 @@ def main():
     print('15. Segmentacja Otsu')
     print('16. Segmentacja - wyznaczanie progów na podstawie histogramu')
     print('17. Segmentacja - watershed algorithm')
+    print('18. Szkieletyzacja')
 
     __in = int(input("Podaj liczbę: "))
 
@@ -64,8 +65,8 @@ def main():
         Functions.show('segmentation - binarization of histogram', Functions.segmentationBinarizationHist(img))
     elif __in == 17:
         Functions.show('segmentation - watershed algorithm', Functions.watershedAlgorithm(img))
-
-
+    elif __in == 18:
+        Functions.skel(img)
 
 
 if __name__ == "__main__":

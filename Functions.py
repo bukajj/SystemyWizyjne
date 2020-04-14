@@ -1,6 +1,9 @@
 import cv2.cv2 as cv
 import numpy as np
+from skimage.morphology import medial_axis
 from matplotlib import pyplot as plt
+from skimage.util import invert
+from skimage import color
 
 class Functions:
 
@@ -202,4 +205,25 @@ class Functions:
         img[markers == -1] = [255, 0, 0]
 
         return img
+
+
+    # szkieletyzacja
+    def skel(image):
+
+        img = cv.imread(image)
+        img = color.rgb2gray(img)
+        skel = medial_axis(img)
+
+        fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(8, 4))
+
+        ax1.imshow(img, cmap=plt.cm.gray)
+        ax1.axis('off')
+        ax1.set_title('original', fontsize=20)
+
+        ax2.imshow(skel, cmap=plt.cm.gray)
+        ax2.axis('off')
+        ax2.set_title('skeleton', fontsize=20)
+
+        fig.tight_layout()
+        plt.show()
 
