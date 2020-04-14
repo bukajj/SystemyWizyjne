@@ -63,3 +63,30 @@ class Functions:
 
         return  __img
 
+
+    # filtry - rozmycie
+    def imageBlurring(image, kernel):
+
+        __img = cv.imread(image)
+        __img = cv.blur(__img, (kernel,kernel))
+
+        return __img
+
+
+    # filtry - rozmycie Gaussa
+    def GaussianBlurring(image,kernel):
+
+        __img = cv.imread(image)
+        __img = cv.GaussianBlur(__img, (kernel, kernel),0)
+
+        return __img
+
+
+    #filtry - filtr medianowy
+    def medianBlur(image, kernel):
+
+        __img = cv.imread(image)
+        __img = cv.medianBlur(__img,kernel)
+
+        return __img
+
