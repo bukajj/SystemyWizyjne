@@ -214,16 +214,21 @@ class Functions:
         img = color.rgb2gray(img)
         skel = medial_axis(img)
 
-        fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(8, 4))
+        for px in range(skel.shape[0]):
+            for py in range(skel.shape[1]):
+                if skel[px,py] == True:
+                    img[px,py] = 255
+                else:
+                    img[px,py] = 0
 
-        ax1.imshow(img, cmap=plt.cm.gray)
-        ax1.axis('off')
-        ax1.set_title('original', fontsize=20)
+        return img
 
-        ax2.imshow(skel, cmap=plt.cm.gray)
-        ax2.axis('off')
-        ax2.set_title('skeleton', fontsize=20)
 
-        fig.tight_layout()
-        plt.show()
+    # erozja
+    def erosion(image):
 
+        img = cv.imread(image)
+        kernel = np.ones((5,5),np.uint8)
+        img = cv.erode(img, kernel)
+
+        return img

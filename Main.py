@@ -4,7 +4,7 @@ from Functions import Functions
 def main():
 
 #przykładowy obraz:
-    img = '1.png'
+    img = 'kon.jpg'
 
     print('Co chcesz zrobić?')
     print('1. Wyświetl oryginalny obraz')
@@ -25,6 +25,7 @@ def main():
     print('16. Segmentacja - wyznaczanie progów na podstawie histogramu')
     print('17. Segmentacja - watershed algorithm')
     print('18. Szkieletyzacja')
+    print('19. Erozja')
 
     __in = int(input("Podaj liczbę: "))
 
@@ -66,7 +67,9 @@ def main():
     elif __in == 17:
         Functions.show('segmentation - watershed algorithm', Functions.watershedAlgorithm(img))
     elif __in == 18:
-        Functions.skel(img)
+        Functions.show('skeleton', Functions.skel(img))
+    elif __in == 19:
+        Functions.show('erosion', Functions.erosion(img))
 
 
 if __name__ == "__main__":
