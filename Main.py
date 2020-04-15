@@ -1,5 +1,59 @@
 import cv2.cv2 as cv
 from Functions import Functions
+from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QLabel, QGridLayout
+from PyQt5.QtWidgets import QLineEdit, QPushButton, QHBoxLayout
+from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtCore import Qt
+
+class GUI(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+        self.interfejs()
+
+    def interfejs(self):
+
+        cols = QGridLayout()
+
+        originalBtn = QPushButton('Oryginał',self)
+        negativeBtn = QPushButton('Negatyw', self)
+        grayedOutBtn = QPushButton('Szarość', self)
+        scalingBtn = QPushButton('Skalowanie', self)
+        binarizationBtn = QPushButton('Binaryzacja', self)
+
+        rows = QHBoxLayout()
+        rows.addWidget(originalBtn)
+        rows.addWidget(negativeBtn)
+        rows.addWidget(grayedOutBtn)
+        rows.addWidget(scalingBtn)
+        rows.addWidget(binarizationBtn)
+
+        cols.addLayout(rows, 1,0,1,5)
+
+        originalBtn.clicked.connect(self.convert)
+
+        self.setLayout(cols)
+        self.setGeometry(20, 20, 1366, 768)
+        self.setWindowTitle('Przetwarzanie obrazów')
+        self.show()
+
+
+    def convert(self):
+        img = 'kon.jpg'
+
+        sender = self.sender()
+
+        try:
+            if sender.text() == 'Oryginał':
+                Functions.show('original image', cv.imread(img))
+
+        except ValueError:
+            QMessageBox.warning(self, "Błąd", "Błędne dane", QMessageBox.Ok)
+
+
+
 
 def main():
 
@@ -13,7 +67,7 @@ def main():
     print('4. Normalizacja histogramu')
     print('5. Skalowanie')
     print('6. Progowanie')
-    print('7.Filtry - rozmycie')
+    print('7. Filtry - rozmycie')
     print('8. Filtry - rozmycie Gaussa')
     print('9. Filtr medianowy')
     print('10. Zmiana przestrzeni kolorów z RGB na GRAY')
@@ -73,5 +127,8 @@ def main():
 
 
 if __name__ == "__main__":
+    import sys
 
-    main()
+    app = QApplication(sys.argv)
+    window = GUI()
+    sys.exit(app.exec_())
