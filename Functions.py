@@ -70,28 +70,28 @@ def threshBinary(image):
 
 
 # filtry - rozmycie
-def imageBlurring(image, kernel):
+def imageBlurring(image):
 
     __img = cv.imread(image)
-    __img = cv.blur(__img, (kernel,kernel))
+    __img = cv.blur(__img, (5,5))
 
     return __img
 
 
 # filtry - rozmycie Gaussa
-def GaussianBlurring(image,kernel):
+def GaussianBlurring(image):
 
     __img = cv.imread(image)
-    __img = cv.GaussianBlur(__img, (kernel, kernel),0)
+    __img = cv.GaussianBlur(__img, (5,5),0)
 
     return __img
 
 
 #filtry - filtr medianowy
-def medianBlur(image, kernel):
+def medianBlur(image):
 
     __img = cv.imread(image)
-    __img = cv.medianBlur(__img,kernel)
+    __img = cv.medianBlur(__img,5)
 
     return __img
 

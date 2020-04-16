@@ -11,22 +11,40 @@ class UI(object):
 
     def setupUI(self, Widget):
 
-        layout = QHBoxLayout()
-        self.groupA = QButtonGroup()
-        self.groupA.setExclusive(False)
-        for v in ('Original', 'Negative', 'Grayed Out', 'Histogram Equalization', 'Thresh', 'Blur'):
-            self.btn = QPushButton(v)
-            self.groupA.addButton(self.btn)
-            layout.addWidget(self.btn)
+        layoutA = QHBoxLayout()
+        self.originalBtn = QPushButton('Oryginał', self)
+        self.negativeBtn = QPushButton('Negatyw', self)
+        self.grayedOutBtn = QPushButton('Szarość', self)
+        self.histEqualizeBtn = QPushButton('Normalizacja histogramu', self)
+        self.binarizationBtn = QPushButton('Binaryzacja', self)
+        self.blurBtn = QPushButton('Rozmycie', self)
 
-        self.groupABtn = QGroupBox()
-        self.groupABtn.setLayout(layout)
+        layoutA.addWidget(self.originalBtn)
+        layoutA.addWidget(self.negativeBtn)
+        layoutA.addWidget(self.grayedOutBtn)
+        layoutA.addWidget(self.histEqualizeBtn)
+        layoutA.addWidget(self.binarizationBtn)
+        layoutA.addWidget(self.blurBtn)
 
+
+        layoutB = QHBoxLayout()
+        self.gaussBtn = QPushButton('Rozmycie Gaussa', self)
+        self.medianBtn = QPushButton('Filtr medianowy', self)
+        self.rgb2grayBtn = QPushButton('Przestrzeń kolorów RGB->GRAY', self)
+        self.rgb2hsvBtn = QPushButton('Przestrzeń kolorów RGB->HSV',self)
+        self.cannyBtn = QPushButton('Detekcja krawędzi',self)
+
+        layoutB.addWidget(self.gaussBtn)
+        layoutB.addWidget(self.medianBtn)
+        layoutB.addWidget(self.rgb2grayBtn)
+        layoutB.addWidget(self.rgb2hsvBtn)
+        layoutB.addWidget(self.cannyBtn)
 
 
         mainLayout = QVBoxLayout()
-        mainLayout.addWidget(self.groupABtn)
+        mainLayout.addLayout(layoutA)
+        mainLayout.addLayout(layoutB)
 
         self.setLayout(mainLayout)  # przypisanie układu do okna głównego
-        self.setWindowTitle('')
+        self.setWindowTitle('Przetwarzanie obrazów')
         self.resize(1366,768)

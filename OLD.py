@@ -1,5 +1,5 @@
 import cv2.cv2 as cv
-from Functions import Functions
+from Functions import *
 from PyQt5.QtWidgets import QApplication, QWidget
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QLabel, QGridLayout
