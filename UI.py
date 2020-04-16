@@ -40,10 +40,24 @@ class UI(object):
         layoutB.addWidget(self.rgb2hsvBtn)
         layoutB.addWidget(self.cannyBtn)
 
+        layoutC = QHBoxLayout()
+        self.otsuBtn = QPushButton('Segmentacja Otsu', self)
+        self.segHistBtn = QPushButton('Segmentacja - wyznaczanie progów na podstawie histogramu', self)
+        self.watershedBtn = QPushButton('Segmentacja - watershed algorithm',self)
+        self.skelBtn = QPushButton('Szkieletyzacja', self)
+        self.erosionBtn = QPushButton('Erozja', self)
+
+        layoutC.addWidget(self.otsuBtn)
+        layoutC.addWidget(self.segHistBtn)
+        layoutC.addWidget(self.watershedBtn)
+        layoutC.addWidget(self.skelBtn)
+        layoutC.addWidget(self.erosionBtn)
+
 
         mainLayout = QVBoxLayout()
         mainLayout.addLayout(layoutA)
         mainLayout.addLayout(layoutB)
+        mainLayout.addLayout(layoutC)
 
         self.setLayout(mainLayout)  # przypisanie układu do okna głównego
         self.setWindowTitle('Przetwarzanie obrazów')

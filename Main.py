@@ -24,6 +24,12 @@ class Main(QWidget, UI):
         self.rgb2hsvBtn.clicked.connect(self.execute)
         self.cannyBtn.clicked.connect(self.execute)
 
+        self.otsuBtn.clicked.connect(self.execute)
+        self.segHistBtn.clicked.connect(self.execute)
+        self.watershedBtn.clicked.connect(self.execute)
+        self.skelBtn.clicked.connect(self.execute)
+        self.erosionBtn.clicked.connect(self.execute)
+
 
     def execute(self):
 
@@ -54,6 +60,16 @@ class Main(QWidget, UI):
             show('Przestrzeń kolorów RGB->HSV', changingColorSpace_BGR2HSV(img))
         elif sender.text() == 'Detekcja krawędzi':
             show('Detekcja krawędzi', cannyEdgeDetection(img))
+        elif sender.text() == 'Segmentacja Otsu':
+            show('Segmentacja Otsu',segmentationOtsu(img))
+        elif sender.text() == 'Segmentacja - wyznaczanie progów na podstawie histogramu':
+            show('Segmentacja - wyznaczanie progów na podstawie histogramu', segmentationBinarizationHist(img))
+        elif sender.text() == 'Segmentacja - watershed algorithm':
+            show('Segmentacja - watershed algorithm', watershedAlgorithm(img))
+        elif sender.text() == 'Szkieletyzacja':
+            show('Szkieletyzacja', skel(img))
+        elif sender.text() == 'Erozja':
+            show('Erozja', erosion(img))
 
 
 
