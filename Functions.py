@@ -52,10 +52,10 @@ def equalizeHistogram(image):
 
 
 # skalowanie
-def scaling(image, scale):
+def scaling(image, scaleX, scaleY):
 
     __img = cv.imread(image)
-    __img = cv.resize(__img, None, fx=scale, fy=scale, interpolation=cv.INTER_CUBIC)
+    __img = cv.resize(__img, None, fx=scaleX, fy=scaleY, interpolation=cv.INTER_CUBIC)
 
     return __img
 
