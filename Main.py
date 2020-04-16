@@ -1,134 +1,150 @@
-import cv2.cv2 as cv
-from Functions import Functions
+from __future__ import unicode_literals
 from PyQt5.QtWidgets import QApplication, QWidget
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QLabel, QGridLayout
-from PyQt5.QtWidgets import QLineEdit, QPushButton, QHBoxLayout
-from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtCore import Qt
+from UI import UI
+from PyQt5.QtGui import QColor
+from Functions import *
+import cv2.cv2 as cv
 
-class GUI(QWidget):
+
+class Main(QWidget, UI):
+
+    angle = 90
+    scaleX = 0.5
+    scaleY = 0.5
+    isBrighter = True
+
     def __init__(self, parent=None):
-        super().__init__(parent)
+        super(Main, self).__init__(parent)
+        self.setupUI(self)
 
-        self.interfejs()
+        self.lcd.display(self.angle)
+        self.slider.setSliderPosition(self.angle)
 
-    def interfejs(self):
+        self.lcd1.display(self.scaleX)
+        self.slider1.setSliderPosition(self.scaleX*100)
 
-        cols = QGridLayout()
+        self.lcd2.display(self.scaleY)
+        self.slider2.setSliderPosition(self.scaleY*100)
 
-        originalBtn = QPushButton('Oryginał',self)
-        negativeBtn = QPushButton('Negatyw', self)
-        grayedOutBtn = QPushButton('Szarość', self)
-        scalingBtn = QPushButton('Skalowanie', self)
-        binarizationBtn = QPushButton('Binaryzacja', self)
+        self.originalBtn.clicked.connect(self.execute)
+        self.negativeBtn.clicked.connect(self.execute)
+        self.grayedOutBtn.clicked.connect(self.execute)
+        self.histEqualizeBtn.clicked.connect(self.execute)
+        self.binarizationBtn.clicked.connect(self.execute)
+        self.blurBtn.clicked.connect(self.execute)
 
-        rows = QHBoxLayout()
-        rows.addWidget(originalBtn)
-        rows.addWidget(negativeBtn)
-        rows.addWidget(grayedOutBtn)
-        rows.addWidget(scalingBtn)
-        rows.addWidget(binarizationBtn)
+        self.gaussBtn.clicked.connect(self.execute)
+        self.medianBtn.clicked.connect(self.execute)
+        self.rgb2grayBtn.clicked.connect(self.execute)
+        self.rgb2hsvBtn.clicked.connect(self.execute)
+        self.cannyBtn.clicked.connect(self.execute)
 
-        cols.addLayout(rows, 1,0,1,5)
+        self.otsuBtn.clicked.connect(self.execute)
+        self.segHistBtn.clicked.connect(self.execute)
+        self.watershedBtn.clicked.connect(self.execute)
+        self.skelBtn.clicked.connect(self.execute)
+        self.erosionBtn.clicked.connect(self.execute)
+        self.chkGroup.buttonClicked[int].connect(self.setBright)
+        self.brighterBtn.clicked.connect(self.execute)
 
-        originalBtn.clicked.connect(self.convert)
+        self.slider.valueChanged.connect(self.changeAngle)
+        self.rotatingBtn.clicked.connect(self.execute)
+        self.slider1.valueChanged.connect(self.changeScaleX)
+        self.slider2.valueChanged.connect(self.changeScaleY)
+        self.scalingBtn.clicked.connect(self.execute)
 
-        self.setLayout(cols)
-        self.setGeometry(20, 20, 1366, 768)
-        self.setWindowTitle('Przetwarzanie obrazów')
-        self.show()
 
+    def execute(self):
 
-    def convert(self):
-        img = 'kon.jpg'
+        img = 'lenna.bmp'
 
         sender = self.sender()
 
+        if sender.text() == 'Oryginał':
+            image = cv.imread(img)
+            show('Oryginał', image)
+        elif sender.text() == 'Negatyw':
+            show('Negatyw', negative(img))
+        elif sender.text() == 'Szarość':
+            show('Szarość',grayedOut(img))
+        elif sender.text() == 'Normalizacja histogramu':
+            show('Normalizacja histogramu', equalizeHistogram(img))
+        elif sender.text() == 'Binaryzacja':
+            show('Binaryzacja', threshBinary(img))
+        elif sender.text() == 'Rozmycie':
+            show('Rozmycie', imageBlurring(img))
+        elif sender.text() == 'Rozmycie Gaussa':
+            show('Rozmycie Gaussa',GaussianBlurring(img))
+        elif sender.text() == 'Filtr medianowy':
+            show('Filtr medianowy', medianBlur(img))
+        elif sender.text() == 'Przestrzeń kolorów RGB->GRAY':
+            show('Przestrzeń kolorów RGB->GRAY', changingColorSpace_BGR2GRAY(img))
+        elif sender.text() == 'Przestrzeń kolorów RGB->HSV':
+            show('Przestrzeń kolorów RGB->HSV', changingColorSpace_BGR2HSV(img))
+        elif sender.text() == 'Detekcja krawędzi':
+            show('Detekcja krawędzi', cannyEdgeDetection(img))
+        elif sender.text() == 'Segmentacja Otsu':
+            show('Segmentacja Otsu',segmentationOtsu(img))
+        elif sender.text() == 'Segmentacja - wyznaczanie progów na podstawie histogramu':
+            show('Segmentacja - wyznaczanie progów na podstawie histogramu', segmentationBinarizationHist(img))
+        elif sender.text() == 'Segmentacja - watershed algorithm':
+            show('Segmentacja - watershed algorithm', watershedAlgorithm(img))
+        elif sender.text() == 'Szkieletyzacja':
+            show('Szkieletyzacja', skel(img))
+        elif sender.text() == 'Erozja':
+            show('Erozja', erosion(img))
+        elif sender.text() == 'Rotacja':
+            show('Rotacja', rotation(img, self.angle))
+        elif sender.text() == 'Skalowanie':
+            show('Skalowanie', scaling(img, self.scaleX, self.scaleY))
+        else:
+            show('Jasnść', brightnessChanging(img, self.isBrighter))
+
+
+    def changeAngle(self, value):
+
         try:
-            if sender.text() == 'Oryginał':
-                Functions.show('original image', cv.imread(img))
-
+            value = int(value)
         except ValueError:
-            QMessageBox.warning(self, "Błąd", "Błędne dane", QMessageBox.Ok)
+            value = 0
+
+        self.angle = value
+        self.lcd.display(self.angle)
+
+    def changeScaleX(self, value):
+
+        try:
+            value = int(value)
+        except ValueError:
+            value = 0
+
+        self.scaleX = value/100
+        self.lcd1.display(self.scaleX)
+
+    def changeScaleY(self, value):
+
+        try:
+            value = int(value)
+        except ValueError:
+            value = 0
+
+        self.scaleY = value/100
+        self.lcd2.display(self.scaleY)
 
 
+    def setBright(self, value):
+
+        if value == 0:
+            self.isBrighter = True
+        else:
+            self.isBrighter = False
 
 
-def main():
-
-#przykładowy obraz:
-    img = 'kon.jpg'
-
-    print('Co chcesz zrobić?')
-    print('1. Wyświetl oryginalny obraz')
-    print('2. Negatyw')
-    print('3. Konwersja do odcieni szarości')
-    print('4. Normalizacja histogramu')
-    print('5. Skalowanie')
-    print('6. Progowanie')
-    print('7. Filtry - rozmycie')
-    print('8. Filtry - rozmycie Gaussa')
-    print('9. Filtr medianowy')
-    print('10. Zmiana przestrzeni kolorów z RGB na GRAY')
-    print('11. Zmiana przestrzeni kolorów z RGB na HSV')
-    print('12. Rotacja')
-    print('13. Zmiana jasności')
-    print('14. Detekcja krawędzi')
-    print('15. Segmentacja Otsu')
-    print('16. Segmentacja - wyznaczanie progów na podstawie histogramu')
-    print('17. Segmentacja - watershed algorithm')
-    print('18. Szkieletyzacja')
-    print('19. Erozja')
-
-    __in = int(input("Podaj liczbę: "))
-
-    if __in == 1:
-        Functions.show('original image', cv.imread(img))
-    elif __in == 2:
-        Functions.show('negative', Functions.negative(img))
-    elif __in == 3:
-        Functions.show('grayed out', Functions.grayedOut(img))
-    elif __in == 4:
-        Functions.show('histogram equalizing', Functions.equalizeHistogram(img))
-    elif __in == 5:
-        __scale = float(input('Podaj skalę: '))
-        Functions.show('scaling', Functions.scaling(img, __scale))
-    elif __in == 6:
-        Functions.show('thresh binary', Functions.threshBinary(img))
-    elif __in == 7:
-        Functions.show('blurring', Functions.imageBlurring(img, 5))
-    elif __in == 8:
-        Functions.show('Gaussian blurring', Functions.GaussianBlurring(img, 5))
-    elif __in == 9:
-        Functions.show('median blurring', Functions.medianBlur(img, 5))
-    elif __in == 10:
-        Functions.show('changing colorspace BGR2GRAY', Functions.changingColorSpace_BGR2GRAY(img))
-    elif __in == 11:
-        Functions.show('changing colorspace BGR2HSV', Functions.changingColorSpace_BGR2HSV(img))
-    elif __in == 12:
-        __angle = int(input('Podaj kąt <0,360>: '))
-        Functions.show('rotation 90', Functions.rotation(img, __angle))
-    elif __in == 13:
-        isBrighter = bool(input("Jaśniej(True) czy ciemniej(False)? "))
-        Functions.show('brighter', Functions.brightnessChanging(img, isBrighter))
-    elif __in == 14:
-        Functions.show('canny edge detection', Functions.cannyEdgeDetection(img))
-    elif __in == 15:
-        Functions.show('Otsu binarization', Functions.segmentationOtsu(img))
-    elif __in == 16:
-        Functions.show('segmentation - binarization of histogram', Functions.segmentationBinarizationHist(img))
-    elif __in == 17:
-        Functions.show('segmentation - watershed algorithm', Functions.watershedAlgorithm(img))
-    elif __in == 18:
-        Functions.show('skeleton', Functions.skel(img))
-    elif __in == 19:
-        Functions.show('erosion', Functions.erosion(img))
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     import sys
 
     app = QApplication(sys.argv)
-    window = GUI()
+    window = Main()
+    window.show()
+
     sys.exit(app.exec_())

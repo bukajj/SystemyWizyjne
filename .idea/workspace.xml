@@ -19,10 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01dd63ef-f016-4a23-acb7-82545fe78ea6" name="Default Changelist" comment="Erozja, checkpoint 1">
+    <list default="true" id="01dd63ef-f016-4a23-acb7-82545fe78ea6" name="Default Changelist" comment="GUI - usunięcie interfejsu konsolowego">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/2011_IPandCG_Tutorial.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +38,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="84ad3c6c-8511-4ee8-a416-4cbd422e782c" />
@@ -96,8 +102,9 @@
       <workItem from="1586876777990" duration="2109000" />
       <workItem from="1586879034261" duration="1700000" />
       <workItem from="1586884743351" duration="13255000" />
-      <workItem from="1586937326870" duration="4338000" />
-      <workItem from="1586953127663" duration="6762000" />
+      <workItem from="1586937326870" duration="3536000" />
+      <workItem from="1586962429487" duration="6220000" />
+      <workItem from="1587028444563" duration="15666000" />
     </task>
     <task id="LOCAL-00001" summary="Negatyw obrazu">
       <created>1586870164841</created>
@@ -183,14 +190,35 @@
       <option name="project" value="LOCAL" />
       <updated>1586898852999</updated>
     </task>
-    <task id="LOCAL-00013" summary="Erozja, checkpoint 1">
-      <created>1586943389282</created>
+    <task id="LOCAL-00013" summary="GUI - Utworzenie okna, dodanie kilku przycisków, sprawdzenie wywołania funkcji">
+      <created>1586962495421</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1586943389282</updated>
+      <updated>1586962495421</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="GUI - dodawnie dwóch rzędów przycisków i podpięcie funkcjonalności">
+      <created>1587035495642</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587035495642</updated>
+    </task>
+    <task id="LOCAL-00015" summary="GUI - dodawnie trzeciego rzędu przycisków i podpięcie funkcjonalności">
+      <created>1587037076534</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587037076534</updated>
+    </task>
+    <task id="LOCAL-00016" summary="GUI - usunięcie interfejsu konsolowego">
+      <created>1587037170716</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587037170716</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +230,7 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="BEK_SORT_TYPE" value="1" />
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -258,31 +287,34 @@
     <MESSAGE value="Segmentacja - wyznaczanie progów na podstawie histogramu" />
     <MESSAGE value="Segmentacja - watershed algorithm" />
     <MESSAGE value="Szkieletyzacja" />
-    <MESSAGE value="Erozja, checkpoint 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Erozja, checkpoint 1" />
+    <MESSAGE value="GUI - Utworzenie okna, dodanie kilku przycisków, sprawdzenie wywołania funkcji" />
+    <MESSAGE value="GUI - dodawnie dwóch rzędów przycisków i podpięcie funkcjonalności" />
+    <MESSAGE value="GUI - dodawnie trzeciego rzędu przycisków i podpięcie funkcjonalności" />
+    <MESSAGE value="GUI - usunięcie interfejsu konsolowego" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI - usunięcie interfejsu konsolowego" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586961569466">
+    <state width="1877" height="286" key="GridCell.Tab.0.bottom" timestamp="1587050823498">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586940805823" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586961569466" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586961569465">
+    <state width="1877" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587050823498" />
+    <state width="1877" height="286" key="GridCell.Tab.0.center" timestamp="1587050823498">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586940805823" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586961569465" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586961569465">
+    <state width="1877" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587050823498" />
+    <state width="1877" height="286" key="GridCell.Tab.0.left" timestamp="1587050823498">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586940805823" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586961569465" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586961569465">
+    <state width="1877" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587050823498" />
+    <state width="1877" height="286" key="GridCell.Tab.0.right" timestamp="1587050823498">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586940805823" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586961569465" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1586957309135">
+    <state width="1877" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587050823498" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1586899818778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586957309135" />
@@ -304,6 +336,6 @@
     <state x="515" y="248" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586897090240" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SystemyWizyjne$Main.coverage" NAME="Main Coverage Results" MODIFIED="1586962049181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SystemyWizyjne$Main.coverage" NAME="Main Coverage Results" MODIFIED="1587050823490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
