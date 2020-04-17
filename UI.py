@@ -14,6 +14,10 @@ class UI(object):
 
     def setupUI(self, Widget):
 
+        layout0 = QHBoxLayout()
+        self.addImageBtn = QPushButton('Dodaj zdjęcie', self)
+        layout0.addWidget(self.addImageBtn)
+
         layoutA = QHBoxLayout()
         self.originalBtn = QPushButton('Oryginał', self)
         self.negativeBtn = QPushButton('Negatyw', self)
@@ -112,11 +116,13 @@ class UI(object):
 
 
         mainLayout = QVBoxLayout()
+
         mainLayout.addLayout(layoutA)
         mainLayout.addLayout(layoutB)
         mainLayout.addLayout(layoutC)
         mainLayout.addLayout(layoutD)
         mainLayout.addLayout(layoutE)
+        mainLayout.addLayout(layout0)
 
         self.setLayout(mainLayout)  # przypisanie układu do okna głównego
         self.setWindowTitle('Przetwarzanie obrazów')

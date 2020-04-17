@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QApplication, QWidget, QFileDialog
 from UI import UI
 from PyQt5.QtGui import QColor
 from PyQt5.QtGui import QPixmap, QImage
@@ -13,6 +13,7 @@ class Main(QWidget, UI):
     scaleX = 0.5
     scaleY = 0.5
     isBrighter = True
+    img = 'lenna.bmp'
 
     def __init__(self, parent=None):
         super(Main, self).__init__(parent)
@@ -26,6 +27,9 @@ class Main(QWidget, UI):
 
         self.lcd2.display(self.scaleY)
         self.slider2.setSliderPosition(self.scaleY*10)
+        
+        
+        self.addImageBtn.clicked.connect(self.getFile)
 
         self.originalBtn.clicked.connect(self.execute)
         self.negativeBtn.clicked.connect(self.execute)
@@ -33,20 +37,21 @@ class Main(QWidget, UI):
         self.histEqualizeBtn.clicked.connect(self.execute)
         self.binarizationBtn.clicked.connect(self.execute)
         self.blurBtn.clicked.connect(self.execute)
+        self.skelBtn.clicked.connect(self.execute)
+        self.erosionBtn.clicked.connect(self.execute)
 
         self.gaussBtn.clicked.connect(self.execute)
         self.medianBtn.clicked.connect(self.execute)
         self.rgb2grayBtn.clicked.connect(self.execute)
         self.rgb2hsvBtn.clicked.connect(self.execute)
         self.cannyBtn.clicked.connect(self.execute)
-
         self.otsuBtn.clicked.connect(self.execute)
+        
         self.segHistBtn.clicked.connect(self.execute)
         self.watershedBtn.clicked.connect(self.execute)
-        self.skelBtn.clicked.connect(self.execute)
-        self.erosionBtn.clicked.connect(self.execute)
-        self.chkGroup.buttonClicked[int].connect(self.setBright)
         self.brighterBtn.clicked.connect(self.execute)
+        self.chkGroup.buttonClicked[int].connect(self.setBright)
+
 
         self.slider.valueChanged.connect(self.changeAngle)
         self.rotatingBtn.clicked.connect(self.execute)
@@ -57,52 +62,53 @@ class Main(QWidget, UI):
 
     def execute(self):
 
-        img = 'lenna.bmp'
-
         sender = self.sender()
 
         if sender.text() == 'Oryginał':
-            image = cv.imread(img)
+            image = cv.imread(self.img)
             self.setImage(image)
         elif sender.text() == 'Negatyw':
-            self.setImage(negative(img))
+            self.setImage(negative(self.img))
         elif sender.text() == 'Szarość':
-            self.setImage(grayedOut(img))
+            self.setImage(grayedOut(self.img))
         elif sender.text() == 'Normalizacja histogramu':
-            self.setImage(equalizeHistogram(img))
+            self.setImage(equalizeHistogram(self.img))
         elif sender.text() == 'Binaryzacja':
-            self.setImage(threshBinary(img))
+            self.setImage(threshBinary(self.img))
         elif sender.text() == 'Rozmycie':
-            self.setImage(imageBlurring(img))
+            self.setImage(imageBlurring(self.img))
         elif sender.text() == 'Rozmycie Gaussa':
-            self.setImage(GaussianBlurring(img))
+            self.setImage(GaussianBlurring(self.img))
         elif sender.text() == 'Filtr medianowy':
-            self.setImage(medianBlur(img))
+            self.setImage(medianBlur(self.img))
         elif sender.text() == 'Przestrzeń kolorów RGB->GRAY':
-            image = changingColorSpace_BGR2GRAY(img)
+            image = changingColorSpace_BGR2GRAY(self.img)
             image = QImage(image.data, image.shape[1], image.shape[0], QImage.Format_Grayscale8)
             pixmap = QPixmap.fromImage(image)
             self.image.setPixmap(pixmap)
         elif sender.text() == 'Przestrzeń kolorów RGB->HSV':
-            show('BGR2HSV',changingColorSpace_BGR2HSV(img))
+            image = changingColorSpace_BGR2HSV(self.img)
+            cv.imwrite('hsv.jpg', image)
+            pixmap = QPixmap('hsv.jpg')
+            self.image.setPixmap(pixmap)
         elif sender.text() == 'Detekcja krawędzi':
-            self.setImage(cannyEdgeDetection(img))
+            self.setImage(cannyEdgeDetection(self.img))
         elif sender.text() == 'Segmentacja Otsu':
-            self.setImage(segmentationOtsu(img))
+            self.setImage(segmentationOtsu(self.img))
         elif sender.text() == 'Segmentacja - wyznaczanie progów na podstawie histogramu':
-            self.setImage(segmentationBinarizationHist(img))
+            self.setImage(segmentationBinarizationHist(self.img))
         elif sender.text() == 'Segmentacja - watershed algorithm':
-            self.setImage(watershedAlgorithm(img))
+            self.setImage(watershedAlgorithm(self.img))
         elif sender.text() == 'Szkieletyzacja':
-            self.setImage(skel(img))
+            self.setImage(skel(self.img))
         elif sender.text() == 'Erozja':
-            self.setImage(erosion(img))
+            self.setImage(erosion(self.img))
         elif sender.text() == 'Rotacja':
-            self.setImage(rotation(img, self.angle))
+            self.setImage(rotation(self.img, self.angle))
         elif sender.text() == 'Skalowanie':
-            self.setImage(scaling(img, self.scaleX, self.scaleY))
+            self.setImage(scaling(self.img, self.scaleX, self.scaleY))
         else:
-            self.setImage(brightnessChanging(img, self.isBrighter))
+            self.setImage(brightnessChanging(self.img, self.isBrighter))
 
 
     def changeAngle(self, value):
@@ -149,6 +155,11 @@ class Main(QWidget, UI):
         image = QImage(image.data, image.shape[1], image.shape[0], QImage.Format_RGB888)
         pixmap = QPixmap.fromImage(image)
         self.image.setPixmap(pixmap)
+        
+    def getFile(self):
+        fname = QFileDialog.getOpenFileName(self, 'Open file','c:\\', "Image files (*.jpg *.png *.bmp)")
+        self.image.setPixmap(QPixmap(fname[0]))
+        self.img = fname[0]
 
 
 
