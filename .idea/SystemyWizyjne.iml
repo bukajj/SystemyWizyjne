@@ -6,9 +6,15 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="pytest" />
   </component>
 =======
+>>>>>>> Stashed changes
+=======
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="pytest" />
+  </component>
 >>>>>>> Stashed changes
 </module>
