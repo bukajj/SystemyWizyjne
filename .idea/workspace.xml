@@ -19,8 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="01dd63ef-f016-4a23-acb7-82545fe78ea6" name="Default Changelist" comment="GUI - usunięcie interfejsu konsolowego">
+    <list default="true" id="01dd63ef-f016-4a23-acb7-82545fe78ea6" name="Default Changelist" comment="GUIv1.1 wyświetlanie obrazu w aplikacji">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +105,10 @@
       <workItem from="1586962429487" duration="6220000" />
       <workItem from="1587028444563" duration="15666000" />
       <workItem from="1587051067409" duration="207000" />
-      <workItem from="1587051302173" duration="98000" />
+      <workItem from="1587051302173" duration="529000" />
+      <workItem from="1587057497792" duration="650000" />
+      <workItem from="1587058163071" duration="7872000" />
+      <workItem from="1587108937496" duration="2631000" />
     </task>
     <task id="LOCAL-00001" summary="Negatyw obrazu">
       <created>1586870164841</created>
@@ -217,7 +222,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587037170716</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="GUIv1.0">
+      <created>1587051436917</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1587051436918</updated>
+    </task>
+    <task id="LOCAL-00018" summary="GUIv1.1 wyświetlanie obrazu w aplikacji">
+      <created>1587066348538</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1587066348538</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +309,9 @@
     <MESSAGE value="GUI - dodawnie dwóch rzędów przycisków i podpięcie funkcjonalności" />
     <MESSAGE value="GUI - dodawnie trzeciego rzędu przycisków i podpięcie funkcjonalności" />
     <MESSAGE value="GUI - usunięcie interfejsu konsolowego" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI - usunięcie interfejsu konsolowego" />
+    <MESSAGE value="GUIv1.0" />
+    <MESSAGE value="GUIv1.1 wyświetlanie obrazu w aplikacji" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUIv1.1 wyświetlanie obrazu w aplikacji" />
   </component>
   <component name="WindowStateProjectService">
     <state x="669" y="115" key="#Main" timestamp="1587051398622">
@@ -298,48 +319,52 @@
     </state>
     <state x="-1251" y="115" key="#Main/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1587051324486" />
     <state x="669" y="115" key="#Main/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587051398622" />
-    <state width="1877" height="286" key="GridCell.Tab.0.bottom" timestamp="1587050823498">
+    <state width="1877" height="286" key="GridCell.Tab.0.bottom" timestamp="1587112832207">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586940805823" />
-    <state width="1877" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587050823498" />
-    <state width="1877" height="286" key="GridCell.Tab.0.center" timestamp="1587050823498">
+    <state width="1877" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587112832207" />
+    <state width="1877" height="286" key="GridCell.Tab.0.center" timestamp="1587112832207">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586940805823" />
-    <state width="1877" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587050823498" />
-    <state width="1877" height="286" key="GridCell.Tab.0.left" timestamp="1587050823498">
+    <state width="1877" height="286" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587112832207" />
+    <state width="1877" height="286" key="GridCell.Tab.0.left" timestamp="1587112832207">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586940805823" />
-    <state width="1877" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587050823498" />
-    <state width="1877" height="286" key="GridCell.Tab.0.right" timestamp="1587050823498">
+    <state width="1877" height="286" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587112832207" />
+    <state width="1877" height="286" key="GridCell.Tab.0.right" timestamp="1587112832207">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1586940805823" />
-    <state width="1877" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587050823498" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1586899818778">
+    <state width="1877" height="286" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587112832207" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1587066367597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586957309135" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1586957309135">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587066367597" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1587066367597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586957309135" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1586957309135">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587066367597" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1587066367597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586957309135" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1586957309135">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587066367597" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1587066367597">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586957309135" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587066367597" />
     <state x="515" y="248" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586897090240">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="515" y="248" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1586897090240" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1587062349892">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587062349892" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SystemyWizyjne$Main.coverage" NAME="Main Coverage Results" MODIFIED="1587051472872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SystemyWizyjne$Main.coverage" NAME="Main Coverage Results" MODIFIED="1587112832193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

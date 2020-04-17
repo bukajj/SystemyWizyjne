@@ -6,10 +6,17 @@ from PyQt5.QtWidgets import QRadioButton, QGroupBox
 from PyQt5.QtWidgets import QComboBox, QSpinBox
 from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtWidgets import QLabel, QLineEdit
+from PyQt5.QtGui import QPixmap, QImage
+import cv2.cv2 as cv
+
 
 class UI(object):
 
     def setupUI(self, Widget):
+
+        layout0 = QHBoxLayout()
+        self.addImageBtn = QPushButton('Dodaj zdjęcie', self)
+        layout0.addWidget(self.addImageBtn)
 
         layoutA = QHBoxLayout()
         self.originalBtn = QPushButton('Oryginał', self)
@@ -67,19 +74,25 @@ class UI(object):
         self.slider = QSlider(Qt.Horizontal)
         self.slider.setMaximum(360)
         self.slider.setMinimum(0)
-        self.lcd = QLCDNumber()
+        self.lcd = QLCDNumber(3)
+        self.lcd.setMaximumHeight(25)
+        self.lcd.setMinimumWidth(100)
         self.lcd.setSegmentStyle(QLCDNumber.Flat)
 
         self.scalingBtn = QPushButton('Skalowanie', self)
         self.slider1 = QSlider(Qt.Horizontal)
-        self.slider1.setMinimum(1)
-        self.slider1.setMaximum(100)
-        self.lcd1 = QLCDNumber()
+        self.slider1.setMinimum(50)
+        self.slider1.setMaximum(200)
+        self.lcd1 = QLCDNumber(4)
+        self.lcd1.setMaximumHeight(25)
+        self.lcd1.setMinimumWidth(100)
         self.lcd1.setSegmentStyle(QLCDNumber.Flat)
         self.slider2 = QSlider(Qt.Horizontal)
         self.slider2.setMinimum(1)
-        self.slider2.setMaximum(100)
-        self.lcd2 = QLCDNumber()
+        self.slider2.setMaximum(10)
+        self.lcd2 = QLCDNumber(4)
+        self.lcd2.setMaximumHeight(25)
+        self.lcd2.setMinimumWidth(100)
         self.lcd2.setSegmentStyle(QLCDNumber.Flat)
 
         layoutD.addWidget(self.rotatingBtn)
@@ -91,13 +104,30 @@ class UI(object):
         layoutD.addWidget(self.slider2)
         layoutD.addWidget(self.lcd2)
 
+        layoutE = QHBoxLayout()
+        self.image=QLabel(self)
+        img = cv.imread('lenna.bmp')
+        img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+        qimg = QImage(img.data, img.shape[1], img.shape[0], QImage.Format_RGB888)
+        pixmap = QPixmap.fromImage(qimg)
+        self.image.setPixmap(pixmap)
+        layoutE.addWidget(self.image)
+        layoutE.setAlignment(Qt.AlignCenter)
+
 
         mainLayout = QVBoxLayout()
+
         mainLayout.addLayout(layoutA)
         mainLayout.addLayout(layoutB)
         mainLayout.addLayout(layoutC)
         mainLayout.addLayout(layoutD)
+        mainLayout.addLayout(layoutE)
+        mainLayout.addLayout(layout0)
 
         self.setLayout(mainLayout)  # przypisanie układu do okna głównego
         self.setWindowTitle('Przetwarzanie obrazów')
         self.resize(1366,768)
+
+
+
+

@@ -45,8 +45,11 @@ def grayedOut(image):
 # normalizacja histogramu przy użyciu biblioteki openCV
 def equalizeHistogram(image):
 
-    __img = cv.imread(image, 0)
+    __img = cv.imread(image)
+    __img = cv.cvtColor(__img, cv.COLOR_BGR2GRAY)
     __img = cv.equalizeHist(__img)
+
+    __img = cv.cvtColor(__img, cv.COLOR_GRAY2BGR)
 
     return __img
 
@@ -63,8 +66,11 @@ def scaling(image, scaleX, scaleY):
 # progowanie (binaryzacja)
 def threshBinary(image):
 
-    __img = cv.imread(image,0)
+    __img = cv.imread(image)
+    __img = cv.cvtColor(__img, cv.COLOR_BGR2GRAY)
     ret,__img = cv.threshold(__img,128,255,cv.THRESH_BINARY)
+
+    __img = cv.cvtColor(__img, cv.COLOR_GRAY2BGR)
 
     return  __img
 
@@ -153,9 +159,11 @@ def cannyEdgeDetection(image):
 # segmentacja z użyciem binaryzacji Otsu
 def segmentationOtsu(image):
 
-    __img = cv.imread(image, 0)
+    __img = cv.imread(image)
+    __img = cv.cvtColor(__img, cv.COLOR_BGR2GRAY)
     __img = cv.GaussianBlur(__img,(5,5),0)
     __ret, __img = cv.threshold(__img,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
+    __img = cv.cvtColor(__img, cv.COLOR_GRAY2BGR)
 
     return __img
 
@@ -163,9 +171,11 @@ def segmentationOtsu(image):
 # segmentacja - wyznaczanie progów na podstawie histogramu
 def segmentationBinarizationHist(image):
 
-    __img = cv.imread(image,0)
+    __img = cv.imread(image)
+    __img = cv.cvtColor(__img, cv.COLOR_BGR2GRAY)
     __img = cv.equalizeHist(__img)
     ret, __img = cv.threshold(__img, 128, 255, cv.THRESH_BINARY)
+    __img = cv.cvtColor(__img, cv.COLOR_GRAY2BGR)
 
     return __img
 
@@ -204,6 +214,8 @@ def watershedAlgorithm(image):
     markers = cv.watershed(img, markers)
     img[markers == -1] = [255, 0, 0]
 
+
+
     return img
 
 
@@ -211,7 +223,7 @@ def watershedAlgorithm(image):
 def skel(image):
 
     img = cv.imread(image)
-    img = color.rgb2gray(img)
+    img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     skel = medial_axis(img)
 
     for px in range(skel.shape[0]):
@@ -221,6 +233,7 @@ def skel(image):
             else:
                 img[px,py] = 0
 
+    img = cv.cvtColor(img, cv.COLOR_GRAY2BGR)
     return img
 
 
