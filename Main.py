@@ -68,47 +68,65 @@ class Main(QWidget, UI):
             image = cv.imread(self.img)
             self.setImage(image)
         elif sender.text() == 'Negatyw':
-            self.setImage(negative(self.img))
+            image = cv.imread(self.img)
+            self.setImage(negative(image))
         elif sender.text() == 'Szarość':
-            self.setImage(grayedOut(self.img))
+            image = cv.imread(self.img)
+            self.setImage(grayedOut(image))
         elif sender.text() == 'Normalizacja histogramu':
-            self.setImage(equalizeHistogram(self.img))
+            image = cv.imread(self.img)
+            self.setImage(equalizeHistogram(image))
         elif sender.text() == 'Binaryzacja':
-            self.setImage(threshBinary(self.img))
+            image = cv.imread(self.img)
+            self.setImage(threshBinary(image))
         elif sender.text() == 'Rozmycie':
-            self.setImage(imageBlurring(self.img))
+            image = cv.imread(self.img)
+            self.setImage(imgBlurring(image))
         elif sender.text() == 'Rozmycie Gaussa':
-            self.setImage(GaussianBlurring(self.img))
+            image = cv.imread(self.img)
+            self.setImage(GaussianBlurring(image))
         elif sender.text() == 'Filtr medianowy':
-            self.setImage(medianBlur(self.img))
+            image = cv.imread(self.img)
+            self.setImage(medianBlur(image))
         elif sender.text() == 'Przestrzeń kolorów RGB->GRAY':
-            image = changingColorSpace_BGR2GRAY(self.img)
+            image = cv.imread(self.img)
+            image = changingColorSpace_BGR2GRAY(image)
             image = QImage(image.data, image.shape[1], image.shape[0], QImage.Format_Grayscale8)
             pixmap = QPixmap.fromImage(image)
             self.image.setPixmap(pixmap)
         elif sender.text() == 'Przestrzeń kolorów RGB->HSV':
-            image = changingColorSpace_BGR2HSV(self.img)
+            image = cv.imread(self.img)
+            image = changingColorSpace_BGR2HSV(image)
             cv.imwrite('hsv.jpg', image)
             pixmap = QPixmap('hsv.jpg')
             self.image.setPixmap(pixmap)
         elif sender.text() == 'Detekcja krawędzi':
-            self.setImage(cannyEdgeDetection(self.img))
+            image = cv.imread(self.img)
+            self.setImage(cannyEdgeDetection(image))
         elif sender.text() == 'Segmentacja Otsu':
-            self.setImage(segmentationOtsu(self.img))
+            image = cv.imread(self.img)
+            self.setImage(segmentationOtsu(image))
         elif sender.text() == 'Segmentacja - wyznaczanie progów na podstawie histogramu':
-            self.setImage(segmentationBinarizationHist(self.img))
+            image = cv.imread(self.img)
+            self.setImage(segmentationBinarizationHist(image))
         elif sender.text() == 'Segmentacja - watershed algorithm':
-            self.setImage(watershedAlgorithm(self.img))
+            image = cv.imread(self.img)
+            self.setImage(watershedAlgorithm(image))
         elif sender.text() == 'Szkieletyzacja':
-            self.setImage(skel(self.img))
+            image = cv.imread(self.img)
+            self.setImage(skel(image))
         elif sender.text() == 'Erozja':
-            self.setImage(erosion(self.img))
+            image = cv.imread(self.img)
+            self.setImage(erosion(image))
         elif sender.text() == 'Rotacja':
-            self.setImage(rotation(self.img, self.angle))
+            image = cv.imread(self.img)
+            self.setImage(rotation(image, self.angle))
         elif sender.text() == 'Skalowanie':
-            self.setImage(scaling(self.img, self.scaleX, self.scaleY))
+            image = cv.imread(self.img)
+            self.setImage(scaling(image, self.scaleX, self.scaleY))
         else:
-            self.setImage(brightnessChanging(self.img, self.isBrighter))
+            image = cv.imread(self.img)
+            self.setImage(brightnessChanging(image, self.isBrighter))
 
 
     def changeAngle(self, value):
